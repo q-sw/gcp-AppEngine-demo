@@ -1,0 +1,11 @@
+runtime: python39
+
+instance_class: F1
+
+env_variables:
+  thumbnail_bucket: ""
+  prez_cloud_bucket: ""
+
+handlers:
+  - url: /.*
+    script: auto
