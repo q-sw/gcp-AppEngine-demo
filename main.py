@@ -10,15 +10,15 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     images = list_bucket_file(os.getenv("thumbnail_bucket"))
-    return render_template('index.html')
+    return render_template('index.html', images=images)
 @app.route('/cloud')
 def cloud():
     images = list_bucket_file(os.getenv("prez_cloud_bucket"))
-    return render_template('slides.html')
+    return render_template('slides.html', images=images)
 
 def list_bucket_file(bucket_name):
 
-    credentials = auth.default()
+    credentials, project = auth.default()
     credentials.refresh(auth.transport.requests.Request())
 
     expiration = dt.timedelta(hours=1)

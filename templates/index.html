@@ -6,15 +6,18 @@
 	</head>
 	<body>
 		<div class="row">
+			{%for key, value  in images.items() %}
 			<div class="col-sm-6">
 				<div class="card">
 					<div class="card-body">
-					  <h5 class="card-title">Slide1</h5>
-					  <img src="{{url_for('static', filename="diapo1.jpeg")}}" class="img-thumbnail" alt="...">
+					  <h5 class="card-title">Slide-{{key}}</h5>
+					  <img src="{{ value }}" class="img-thumbnail" alt="...">
 					  <a href="{{url_for('cloud')}}" class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
+			{% endfor %}
+			
 			<div class="col-sm-6">
 				<div class="card">
 					<div class="card-body">
@@ -24,7 +27,6 @@
 					</div>
 				</div>
 			</div>
-		
 		</div>
 	</body>
 </html>
