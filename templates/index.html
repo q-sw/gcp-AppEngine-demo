@@ -6,27 +6,17 @@
 	</head>
 	<body>
 		<div class="row">
-			{%for key, value  in images.items() %}
+			{%for s  in slides %}
 			<div class="col-sm-6">
 				<div class="card">
 					<div class="card-body">
-					  <h5 class="card-title">Slide-{{key}}</h5>
-					  <img src="{{ value }}" class="img-thumbnail" alt="...">
-					  <a href="{{url_for('cloud')}}" class="btn btn-primary">Go somewhere</a>
+					  <h5 class="card-title">{{s.presentation_name}}</h5>
+					  <img src="{{ s.signed_url }}" class="img-thumbnail" alt="...">
+					  <a href="{{url_for( s.url )}}" class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
 			{% endfor %}
-			
-			<div class="col-sm-6">
-				<div class="card">
-					<div class="card-body">
-					  <h5 class="card-title">Slide2</h5>
-					  <img src="{{url_for('static', filename="diapo1.jpeg")}}" class="img-thumbnail" alt="...">
-					  <a href="{{url_for('cloud')}}" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
 		</div>
 	</body>
 </html>
